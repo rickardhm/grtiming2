@@ -6,17 +6,23 @@ DROP TABLE IF EXISTS race_event;
 
 CREATE TABLE users
 (
-	id serial PRIMARY KEY,
-	name CHARACTER VARYING (40),
-	birthday date
+    id serial PRIMARY KEY,
+	first_name varchar (100),
+    last_name varchar (100),
+    email varchar (100),
+    phone varchar (100),
+    club varchar (100),
+    age varchar (100),
+    gender varchar (100)
 );
 
-INSERT INTO public.users(id, name, birthday)
-	VALUES (0, 'John' ,'1967-11-20');
+INSERT INTO public.users(id, first_name, last_name, email, phone, club, age, gender)
+	VALUES (0, 'John', 'doe', 'john.doe@missing.com', '0', 'klubben', '42', 'male');
 
 CREATE TABLE address
 (
 		id serial PRIMARY KEY,
+		address_id int,
         streetAddress CHARACTER VARYING (40),
         city CHARACTER VARYING (40) ,
         postcode CHARACTER VARYING (40)
@@ -28,17 +34,13 @@ INSERT INTO public.address(id, streetaddress, city, postcode)
 CREATE TABLE participant
 (
  id serial PRIMARY KEY,
- name varchar(100),
- addressId INT,
- Email CHARACTER VARYING (40),
- Phone CHARACTER VARYING (40),
- Club CHARACTER VARYING (40),
- Age CHARACTER VARYING (40),
- Gender CHARACTER VARYING (40)
+ user_id int,
+ start_number int,
+ Status CHARACTER VARYING (40)
 );
 
-INSERT INTO participant(id, addressId, name, email, phone, club, age, gender)
-values(0, 0, 'John', 'john.doe@missing.com', '0', 'klubben', '42', 'male');
+INSERT INTO participant(id, user_id, start_number, status)
+values(0, 0, 0, 'not_started');
 
 CREATE TABLE race
 (
@@ -46,7 +48,7 @@ CREATE TABLE race
  name varchar(100),
  description varchar (100),
  distance varchar (100),
- fee varchar (100)
+ fee int
 );
 
 INSERT INTO race(id, name, description, distance, fee)

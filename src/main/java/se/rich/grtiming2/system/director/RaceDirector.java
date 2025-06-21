@@ -23,6 +23,7 @@ public abstract class RaceDirector implements Director {
         }
         catch (Exception e) {
             sessionFactory.close();
+            throw new RuntimeException("There is issue in hibernate util");
         }
     }
 

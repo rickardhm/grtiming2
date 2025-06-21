@@ -9,22 +9,17 @@ public class Participant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String phone;
-    private String club;
-    private String gender;
+    private Long user_id;
+    private Long start_number;
+    private String status;
 
     public Participant() {
     }
 
-    public Participant(Long id, String name, String email, String phone, String club, String gender) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.club = club;
-        this.gender = gender;
+    public Participant(Long user_id, Long start_number, String status) {
+        this.user_id = user_id;
+        this.start_number = start_number;
+        this.status = status;
     }
 
     public Long getId() {
@@ -35,55 +30,37 @@ public class Participant {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
-    public String getEmail() {
-        return email;
+    public Long getStart_number() {
+        return start_number;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setStart_number(Long start_number) {
+        this.start_number = start_number;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getClub() {
-        return club;
-    }
-
-    public void setClub(String club) {
-        this.club = club;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return "Participant{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", club='" + club + '\'' +
-                ", gender='" + gender + '\'' +
+                ", user_id=" + user_id +
+                ", start_number=" + start_number +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

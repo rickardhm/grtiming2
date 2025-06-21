@@ -11,12 +11,15 @@
         <property name="hibernate.connection.password">pgadmin</property>
 
         <!-- Print executed SQL to stdout -->
-        <property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
 
         <!-- Annotated entity classes -->
+        <mapping class="se.rich.grtiming2.system.RaceEvent" />
         <mapping class="se.rich.grtiming2.system.Race" />
-        <mapping class="se.rich.grtiming2.system.Participant"/>
+        <mapping class="se.rich.grtiming2.system.User" />
         <mapping class="se.rich.grtiming2.system.Address"/>
-
+        <mapping class="se.rich.grtiming2.system.Participant"/>
     </session-factory>
 </hibernate-configuration>

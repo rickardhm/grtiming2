@@ -2,8 +2,6 @@ package se.rich.grtiming2.system;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "race")
 public class Race {
@@ -55,7 +53,7 @@ public class Race {
         this.distance = distance;
     }
 
-    public int getFee() {
+    public long getFee() {
         return fee;
     }
 
