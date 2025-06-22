@@ -12,17 +12,18 @@ CREATE TABLE users
     email varchar (100),
     phone varchar (100),
     club varchar (100),
-    age varchar (100),
+    age integer,
     gender varchar (100)
 );
 
-INSERT INTO public.users(id, first_name, last_name, email, phone, club, age, gender)
-	VALUES (0, 'John', 'doe', 'john.doe@missing.com', '0', 'klubben', '42', 'male');
+INSERT INTO public.users(first_name, last_name, email, phone, club, age, gender)
+	VALUES ('John', 'doe', 'john.doe@missing.com', '0', 'klubben', 42, 'male'),
+	('Mary', 'doe', 'mary.doe@missing.com', '0', 'klubben', 41, 'female');;
 
 CREATE TABLE address
 (
 		id serial PRIMARY KEY,
-		address_id int,
+		address_id integer,
         streetAddress CHARACTER VARYING (40),
         city CHARACTER VARYING (40) ,
         postcode CHARACTER VARYING (40)
@@ -34,8 +35,8 @@ INSERT INTO public.address(id, streetaddress, city, postcode)
 CREATE TABLE participant
 (
  id serial PRIMARY KEY,
- user_id int,
- start_number int,
+ user_id integer,
+ start_number integer,
  Status CHARACTER VARYING (40)
 );
 
@@ -48,7 +49,7 @@ CREATE TABLE race
  name varchar(100),
  description varchar (100),
  distance varchar (100),
- fee int
+ fee integer
 );
 
 INSERT INTO race(id, name, description, distance, fee)

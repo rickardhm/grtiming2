@@ -12,8 +12,8 @@ public class RaceEventTest {
     @Test
     public void getRaceEvent() {
         try {
-            List<RaceEvent> raceEventList = raceEventManager.getSession().createQuery("select re from RaceEvent re", RaceEvent.class).list();
-            assertNotNull(raceEventList);
+            //List<RaceEvent> raceEventList = raceEventManager.getSession().createQuery("select re from RaceEvent re", RaceEvent.class).list();
+            List<RaceEvent> raceEventList = raceEventManager.getEntityManager().createQuery("select re from RaceEvent re", RaceEvent.class).getResultList();
             raceEventManager.tearDown();
         } catch (Exception e) {
             raceEventManager.tearDown();

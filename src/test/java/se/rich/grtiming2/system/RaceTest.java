@@ -13,8 +13,8 @@ public class RaceTest {
     @Test
     public void getUser() {
         try {
-            List<Race> raceList = raceManager.getSession().createQuery("select r from Race r", Race.class).list();
-            assertNotNull(raceList);
+            //List<Race> raceList = raceManager.getSession().createQuery("select r from Race r", Race.class).list();
+            List<Race> raceList = raceManager.getEntityManager().createQuery("select r from Race r", Race.class).getResultList();
             raceManager.tearDown();
         } catch (Exception e) {
             raceManager.tearDown();

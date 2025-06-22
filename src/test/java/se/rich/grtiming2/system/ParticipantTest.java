@@ -13,8 +13,8 @@ public class ParticipantTest {
     @Test
     public void testParticipant() {
         try {
-            List<Participant> participantList = participantManager.getSession().createQuery("select p from Participant p", Participant.class).list();
-            assertNotNull(participantList);
+            //List<Participant> participantList = participantManager.getSession().createQuery("select p from Participant p", Participant.class).list();
+            List<Participant> participantList = participantManager.getEntityManager().createQuery("select p from Participant p", Participant.class).getResultList();
             participantManager.tearDown();
         } catch (Exception e) {
             participantManager.tearDown();

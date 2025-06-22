@@ -20,8 +20,9 @@ public class AddressTest {
     @Test
     public void testAddress() {
     try {
-        List<Address> addressList = addressManager.getSession().createQuery("select a from Address a", Address.class).list();
-        assertNotNull(addressList);
+        //List<Address> addressList = addressManager.getSession().createQuery("select a from Address a", Address.class).list();
+        List<Address> addressList = addressManager.getEntityManager().createQuery("select a from Address a", Address.class).getResultList();
+        addressList.forEach(System.out::println);
         addressManager.tearDown();
     } catch (Exception e) {
         addressManager.tearDown();

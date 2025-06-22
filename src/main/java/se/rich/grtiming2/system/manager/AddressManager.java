@@ -1,10 +1,9 @@
 package se.rich.grtiming2.system.manager;
 
-import org.hibernate.Session;
-import se.rich.grtiming2.system.director.RaceDirector;
+import se.rich.grtiming2.system.director.JpaRaceDirector;
 
-public class AddressManager extends RaceDirector {
-    public AddressManager() {
+public class AddressManager extends JpaRaceDirector {
+    public AddressManager(){
         setUp();
     }
 }

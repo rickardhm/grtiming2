@@ -1,26 +1,28 @@
 package se.rich.grtiming2.system;
 
 import jakarta.persistence.*;
-import org.hibernate.id.factory.internal.StandardIdentifierGeneratorFactoryInitiator;
+
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
     private String email;
     private String phone;
-    private String age;
+    private int age;
     private String club;
     private String gender;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String phone, String age, String club, String gender) {
+    public User(String firstName, String lastName, String email, String phone, int age, String club, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -30,11 +32,11 @@ public class User {
         this.gender = gender;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -70,11 +72,11 @@ public class User {
         this.phone = phone;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

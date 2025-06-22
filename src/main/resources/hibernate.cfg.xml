@@ -10,8 +10,16 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">pgadmin</property>
 
-        <!-- Print executed SQL to stdout -->
+        <!-- Hibernate supports several strategies for schema generation, each serving a different purpose:
+            none: Disables schema generation.
+            validate: Validates the existing schema against the entity mappings. If there are discrepancies, an error is thrown.
+            update: Updates the existing schema to match the entity mappings. This can add new columns or tables but won't remove existing ones.
+            create: Creates the schema every time the application starts, dropping any existing schema.
+            create-drop: Similar to create, but also drops the schema when the application shuts down.
+        -->
         <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Print executed SQL to stdout -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
