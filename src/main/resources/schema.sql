@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS users_address;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS address;
 DROP TABLE IF EXISTS participant;
@@ -18,7 +19,7 @@ CREATE TABLE users
 
 INSERT INTO public.users(first_name, last_name, email, phone, club, age, gender)
 	VALUES ('John', 'doe', 'john.doe@missing.com', '0', 'klubben', 42, 'male'),
-	('Mary', 'doe', 'mary.doe@missing.com', '0', 'klubben', 41, 'female');;
+	('Jane', 'doe', 'mary.doe@missing.com', '0', 'klubben', 41, 'female');;
 
 CREATE TABLE address
 (

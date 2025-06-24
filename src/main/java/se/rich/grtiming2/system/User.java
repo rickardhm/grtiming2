@@ -2,6 +2,9 @@ package se.rich.grtiming2.system;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -9,6 +12,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @ManyToMany
+    @JoinTable(
+            name = "users_address",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
+    private Set<Address> addresses = new HashSet<Address>();
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -38,6 +48,14 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
     }
 
     public String getFirstName() {

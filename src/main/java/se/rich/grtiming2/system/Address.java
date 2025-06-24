@@ -2,12 +2,17 @@ package se.rich.grtiming2.system;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToMany(mappedBy = "addresses")
+    private Set<User> users = new HashSet<User>();
     private String streetAddress;
     private String city;
     private String postcode;
@@ -25,6 +30,14 @@ public class Address {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     public String getStreetAddress() {
